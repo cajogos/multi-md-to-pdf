@@ -15,7 +15,7 @@ def build(
         help="Output PDF file",
     ),
 ):
-    html = build_html_document(input_dir, "Stitched Markdown")
+    html = build_html_document(input_dir, "Multi MD to PDF")
     render_pdf(html, output)
     # Also output HTML file with same base name
     html_output = output.with_suffix(".html")
