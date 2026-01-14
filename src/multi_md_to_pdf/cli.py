@@ -1,6 +1,6 @@
 from pathlib import Path
 import typer
-from .stitch import build_html_document, render_pdf
+from .stitch import build_html_document, render_pdf, render_html
 
 app = typer.Typer(add_completion=False)
 
@@ -17,3 +17,8 @@ def build(
 ):
     html = build_html_document(input_dir, "Stitched Markdown")
     render_pdf(html, output)
+    # Also output HTML file with same base name
+    html_output = output.with_suffix(".html")
+    render_html(html, html_output)
+    typer.echo(f"Generated PDF: {output}")
+    typer.echo(f"Generated HTML: {html_output}")

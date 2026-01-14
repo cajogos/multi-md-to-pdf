@@ -5,7 +5,7 @@ from .html_template import DEFAULT_CSS, HTML_SHELL
 
 
 def build_html_document(input_dir: Path, title: str) -> str:
-    md = MarkdownIt()
+    md = MarkdownIt().enable(['table'])
     sections = []
 
     for path in sorted(input_dir.rglob("*.md")):
@@ -22,3 +22,8 @@ def build_html_document(input_dir: Path, title: str) -> str:
 def render_pdf(html: str, output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
     HTML(string=html).write_pdf(output)
+
+
+def render_html(html: str, output: Path) -> None:
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(html, encoding="utf-8")
