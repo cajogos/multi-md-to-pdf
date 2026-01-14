@@ -15,7 +15,7 @@ body {
 .cover-page {
     break-after: page;
     text-align: center;
-    padding: 40mm 0;
+    padding: 20mm 0;
 }
 
 .cover-page h1 {
