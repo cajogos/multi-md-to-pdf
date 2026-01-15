@@ -38,23 +38,36 @@ This will install the package in editable mode along with all dependencies.
 Convert all Markdown files in a directory to a single PDF:
 
 ```bash
-multi-md-to-pdf build /path/to/markdown/directory
+multi-md-to-pdf /path/to/markdown/directory
 ```
 
-This will create `output/stitched.pdf` by default.
+This will create a timestamped file like
+`output/2026-01-15_10-40_multi-md-to-pdf.pdf` by default, along with a matching
+HTML file that shares the same base name.
 
 ### Custom Output Path
 
-Specify a custom output file:
+Specify a custom output file name (a timestamp is prepended automatically, and
+the `.pdf` suffix is optional):
 
 ```bash
-multi-md-to-pdf build /path/to/markdown/directory --output my-document.pdf
+multi-md-to-pdf /path/to/markdown/directory --output my-document.pdf
 ```
 
 Or use the short form:
 
 ```bash
-multi-md-to-pdf build /path/to/markdown/directory -o my-document.pdf
+multi-md-to-pdf /path/to/markdown/directory -o my-document.pdf
+```
+
+This will create a file like `2026-01-15_10-40_my-document.pdf` (or
+`2026-01-15_10-40_my-document.html`) and a matching HTML file with the same
+timestamped base name.
+
+If you prefer, you can still use the explicit `build` subcommand:
+
+```bash
+multi-md-to-pdf build /path/to/markdown/directory
 ```
 
 ### Example
