@@ -38,3 +38,4 @@ output/
 
 # Local helpful gen scripts
 *_gen.sh
+temporary/
